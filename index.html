@@ -2,24 +2,25 @@
 	<head>
 	<title>Explore NYC</title>
 	<?php
-	ini_set('display_errors', 'On');
-	// Create connection
-	$dburl = "cs4111.cht4t82rgvgm.us-west-2.rds.amazonaws.com";
-	$dbuser = "kl2532";
-	$dbpassword = "katierachel";
-	$dbname = "cs4111";
-	$conn = mysqli_connect($dburl,$dbuser,$dbpassword,$dbname);
-	// Check connection
-	if (mysqli_connect_errno()) {
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	} else {
-		$result = mysqli_query($conn, "SHOW TABLES");
-		while($row = mysqli_fetch_array($result)) {
-			echo $row[0];
-			echo "<br>";
+		ini_set('display_errors', 'On');
+		// Create connection
+		$dburl = "cs4111.cht4t82rgvgm.us-west-2.rds.amazonaws.com";
+		$dbuser = "kl2532";
+		$dbpassword = "katierachel";
+		$dbname = "cs4111";
+		$conn = mysqli_connect($dburl,$dbuser,$dbpassword,$dbname);
+		// Check connection
+		if (mysqli_connect_errno()) {
+		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		} else {
+			echo "hi";
+			$result = mysqli_query($conn, "SHOW TABLES");
+			while($row = mysqli_fetch_array($result)) {
+				echo $row[0];
+				echo "<br>";
+			}
+			mysqli_close($conn);
 		}
-		mysqli_close($conn);
-	}
 	?>
 	</head>
 	<body>
